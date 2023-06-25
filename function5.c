@@ -6,7 +6,6 @@ unsigned int token_arr_len(void);
 int is_empty_line(char *line, char *delims);
 void (*get_op_func(char *opcode))(stack_t**, unsigned int);
 int play_monty(FILE *script_fd);
-int getline(char **lineptr, int *n, FILE *stream);
 
 /**
  * free_tokens - release memory after usage
@@ -112,7 +111,7 @@ int play_monty(FILE *script_fd)
 {
 	stack_t *stack = NULL;
 	char *line = NULL;
-	int len = 0, exit_status = EXIT_SUCCESS;
+	size_t len = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0, prev_tok_len = 0;
 	void (*op_func)(stack_t**, unsigned int);
 
